@@ -6,12 +6,6 @@ body {
     margin: 50px;
 }
 
-@media (max-width: 768px) {
-    body {
-        margin: 20px;
-    }
-}
-
 /* Heading */
 h1 {
     font-size: 36px;
@@ -152,41 +146,50 @@ li:hover {
     transform: translateX(-50%) translateY(5px);
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 28px;
-    }
-
-    #taskInput {
-        width: 90%;
-        font-size: 16px;
-    }
-
-    button {
-        width: 90%;
-        font-size: 16px;
-        padding: 10px;
-    }
-
+/* Mobile Responsive Fix */
+@media (max-width: 600px) {
+    /* Ensure tasks are properly formatted and wrapped */
     li {
-        width: 90%;
-        font-size: 16px;
+        width: 95%; /* Makes sure the task container fits the screen */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+        text-align: left;
     }
 
+    /* Fix number and text alignment */
     .task-content {
-        flex-direction: column;
+        display: flex;
+        flex-direction: column; /* Stacks number and text on smaller screens */
         align-items: flex-start;
+        gap: 5px;
+    }
+
+    .task-number {
+        font-weight: bold;
+        color: blue;
+    }
+
+    .task-text {
+        word-break: break-word;
+    }
+
+    /* Ensure Remove button is well-positioned */
+    .deleteBtn_div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .delete-btn {
-        width: 100%;
-        text-align: center;
-        margin-top: 5px;
+        width: 100%; /* Makes the button take full width */
+        font-size: 14px;
+        padding: 10px;
     }
 
-    #errorMsg {
-        font-size: 14px;
-        padding: 10px 15px;
+    /* Adjust input field */
+    #taskInput {
+        width: 90%; /* Makes input field wider on mobile */
     }
 }
